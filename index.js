@@ -18,46 +18,46 @@ class Boundary {
       this.image = image;
     }
   draw () {
-    c.drawImage(this.image,this.position.x,this.position.y)
+    c.drawImage(this.image,this.position.x,this.position.y);
   }   
 }
 
 class Player {
-  static speed = 3;
+  static speed = 2;
   constructor({position,velocity}){
     this.position = position;
     this.velocity = velocity;
-    this.speed = 3
+    this.speed = 2;
     this.radius = 15;
-    this.radians = 0.75
-    this.openRate = 0.07
+    this.radians = 0.75;
+    this.openRate = 0.07;
     this.rotation = 0;
   }
   draw () {
-    c.save()
-    c.translate(this.position.x,this.position.y)
-    c.rotate(this.rotation)
-    c.translate(-this.position.x,-this.position.y)
+    c.save();
+    c.translate(this.position.x,this.position.y);
+    c.rotate(this.rotation);
+    c.translate(-this.position.x,-this.position.y);
     c.beginPath();
     c.arc(this.position.x,this.position.y,this.radius,this.radians,Math.PI*2 -this.radians);
-    c.lineTo(this.position.x,this.position.y)
+    c.lineTo(this.position.x,this.position.y);
     c.fillStyle = 'yellow';
     c.fill();
     c.closePath();
-    c.restore()
+    c.restore();
   }   
   update (){
     this.draw();
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
     if (this.radians<0 || this.radians> .75){
-      this.openRate = -this.openRate
-    } this.radians += this.openRate
+      this.openRate = -this.openRate;
+    } this.radians += this.openRate;
 
   }
 }
 class Ghost {
-  static speed = 3;
+  static speed = 1.5;
   constructor({position,velocity,color ='red'}){
     this.position = position;
     this.velocity = velocity;
@@ -65,7 +65,7 @@ class Ghost {
     this.originalColor = color;
     this.color = color;
     this.prevCollisions=[];
-    this.speed = 3
+    this.speed = 1.5;
     this.scared = false;
   }
   draw () {
@@ -248,9 +248,9 @@ const map = [
 ]
 
 function createImage(src){
-  const image = new Image()
-  image.src = src
-  return image
+  const image = new Image();
+  image.src = src;
+  return image;
 }
 
 function addGhost() {
@@ -269,11 +269,10 @@ function addGhost() {
     },
     color: randomColor
   });
-  ghosts.push(newGhost);},3000)
+  ghosts.push(newGhost);},3000);
 }
 
 function createMap() {
-console.log(currentLevel)
 map.forEach((row, i) => {
   row.forEach((symbol, j) => {
     switch (symbol) {
@@ -412,7 +411,7 @@ function cCollidesWrecG ({
     circle.position.x-circle.radius +circle.velocity.x<=rectangle.position.x+rectangle.width+padding)
 }
 
-let animationId ;
+let animationId;
 
 function animate(){
 
@@ -510,49 +509,46 @@ function animate(){
 
 
   // נצחון
-  if (pellets.length === 0) {
-    
+  if (pellets.length === 0) { 
     winGame(); 
   }
   
   //אוספים את המחזק
   for(let i = powerUps.length - 1; 0<=i;i--){
-    const powerUp = powerUps[i]
-    powerUp.draw()
+    const powerUp = powerUps[i];
+    powerUp.draw();
     if(Math.hypot(powerUp.position.x-player.position.x,
       powerUp.position.y-player.position.y)< powerUp.radius + player.radius){
-        powerUps.splice(i,1)
+        powerUps.splice(i,1);
         score+=50;
         scoreEL.innerHTML = score;
     
         // במידה ואוכלים את המחזק אז זה מחלש את הרוחות
         ghosts.forEach(ghost =>{
             if(ghost.scared){
-                clearTimeout(ghost.scaredTimeout)
+                clearTimeout(ghost.scaredTimeout);
             }
             ghost.scared = true;
-            ghost.speed = 1.5;
             ghost.scaredTimeout = setTimeout(() => {
                 ghost.scared = false;
-                ghost.speed = 1.5;
-            }, 10000);
+            }, 6000);
         })
     }}
 
     
   //אוספים מטבעות
   for(let i = pellets.length - 1; 0<=i;i--){
-    const pellet = pellets[i]
-    pellet.draw()
+    const pellet = pellets[i];
+    pellet.draw();
     if(Math.hypot(pellet.position.x-player.position.x,
       pellet.position.y-player.position.y)< pellet.radius + player.radius){
-        pellets.splice(i,1)
+        pellets.splice(i,1);
         score+=10;
         scoreEL.innerHTML = score;
     }}
 
   boundaries.forEach ((boundary) =>{
-    boundary.draw()
+    boundary.draw();
 
     if(cCollidesWrecP({
       circle: player,
@@ -562,7 +558,7 @@ function animate(){
         player.velocity.y=0;
     }
   });
-  player.update()
+  player.update();
 
   ghosts.forEach(ghost =>{
     
