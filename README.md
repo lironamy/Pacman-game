@@ -1,6 +1,7 @@
 # Pacman Game
 
-![Pacman Game](https://github.com/lironamy/Pacman-game/assets/122408173/ac4c1d4e-ea78-45c9-bd15-c12135c97ff3)
+![1](https://github.com/user-attachments/assets/095296f8-d75c-4de9-82f4-3fca909105fc)
+
 
 A classic Pacman game implementation using vanilla JavaScript and HTML Canvas. This project demonstrates the power of modern web technologies in creating engaging browser-based games without relying on external game engines or frameworks.
 
@@ -11,6 +12,7 @@ A classic Pacman game implementation using vanilla JavaScript and HTML Canvas. T
 - [Installation](#installation)
 - [Usage](#usage)
 - [Game Controls](#game-controls)
+- [Screenshots](#Screenshots)
 - [Contributing](#contributing)
 
 ## Live Website
@@ -57,6 +59,18 @@ Simply open the `index.html` file in a modern web browser to start playing. No b
 - Collect all dots to complete each level
 - Avoid the ghosts unless you've eaten a power pellet
 - Try to achieve the highest score possible!
+
+
+## Screenshots
+
+![2](https://github.com/user-attachments/assets/b02443ef-7de6-4396-9488-98b388856838)
+
+
+![3](https://github.com/user-attachments/assets/5bd2b99d-f5a2-4051-b222-6b6453c31157)
+
+
+![4](https://github.com/user-attachments/assets/c9f1a78e-2f30-49a6-885a-8dd37fc6bbe9)
+
 
 ## Contributing
 
